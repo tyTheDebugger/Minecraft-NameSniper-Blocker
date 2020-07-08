@@ -6,6 +6,7 @@ from tkinter import *
 from PIL import ImageTk, Image, ImageSequence
 import datetime as dt
 from datetime import datetime
+import thread
     
 # User-Agent
 useragent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36'
@@ -183,7 +184,7 @@ class GUI:
         elif password == '':
             print('Missing Password!')
         else:
-            we = Button(window,text='Begin',command=GUI.name)
+            we = Button(window,text='Begin',command=GUI.startname)
             we.place(x=175, y=250)
             
     # Updates info  
@@ -203,9 +204,14 @@ class GUI:
         elif token == '':
             print('Missing Bearer Key!')
         else:
-            we = Button(window,text='Begin',command=GUI.block)
+            we = Button(window,text='Begin',command=GUI.startblock)
             we.place(x=175, y=250)
-
+    def startblock():
+        for i in range(5):
+            thread.start_new_thread( GUI.block,  )
+    def startname():
+        for i in range(5):
+            thread.start_new_thread( GUI.name,  )
     # Change the name
     def name():
         try:
