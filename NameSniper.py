@@ -209,9 +209,11 @@ class GUI:
     def startblock():
         for i in range(8):
             thread.start_new_thread( GUI.block,  )
+            time.sleep(0.125)
     def startname():
         for i in range(8):
             thread.start_new_thread( GUI.name,  )
+            time.sleep(0.125)
     # Change the name
     def name():
         try:
