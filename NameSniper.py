@@ -207,10 +207,10 @@ class GUI:
             we = Button(window,text='Begin',command=GUI.startblock)
             we.place(x=175, y=250)
     def startblock():
-        for i in range(5):
+        for i in range(8):
             thread.start_new_thread( GUI.block,  )
     def startname():
-        for i in range(5):
+        for i in range(8):
             thread.start_new_thread( GUI.name,  )
     # Change the name
     def name():
